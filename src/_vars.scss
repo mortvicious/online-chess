@@ -4,9 +4,15 @@ $clr-light: rgb(158, 158, 158);
 $clr-hover: rgb(33, 37, 158);
 $clr-contrast: rgb(69, 111, 132);
 
+$cell-light: rgb(149, 126, 99);
+$cell-dark: rgb(86, 66, 44);
+$cell-selected: rgb(94, 148, 115);
+$cell-size: 90px;
+$cell-available: rgb(236, 221, 207);
+$cell-enemy-available: rgb(127, 79, 79);
+
 
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Raleway:wght@300;400;500;600&display=swap');
 $fnt-contrast: 'Raleway';
 $fnt-main: 'Comfortaa';
 
-$cell-size: 64px;

@@ -6,12 +6,44 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  img {
+    //transform: scale(0.8);
+    width: calc($cell-size - 5px);
+    height: calc($cell-size - 5px);
+    position: relative;
+    object-fit: contain;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
+  }
 }
 
 .light {
-  background-color: $clr-light;
+  background-color: $cell-light;
 }
 
 .dark {
-  background-color: $clr-dark;
+  background-color: $cell-dark;
+}
+
+.selected {
+  background-color: $cell-selected;
+  img {
+    box-shadow: 1px 1px 5px black;
+  }
+}
+
+.available {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: $cell-available;
+}
+
+.enemy-available {
+  background-color: $cell-enemy-available;
 }

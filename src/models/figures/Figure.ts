@@ -26,4 +26,10 @@ export class Figure {
         this.name = FigureNames.Default
         this.id = Math.random()
     }
+    canMove(target: Cell): boolean {
+        return true
+    }
+    moveFigure(target: Cell) {
+        
+    }
 }
