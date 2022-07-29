@@ -1,0 +1,17 @@
+@import '../../vars';
+
+.cell-component {
+  width: $cell-size;
+  height: $cell-size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.light {
+  background-color: $clr-light;
+}
+
+.dark {
+  background-color: $clr-dark;
+}
