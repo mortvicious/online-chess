@@ -10,4 +10,8 @@ export class King extends Figure {
         this.logo = color === Color.dark ? logoDark : logoLight
         this.name = FigureNames.King
     }
+    canMove(target: Cell): boolean {
+        if (!super.canMove(target)) return false
+        return true
+    }
 }

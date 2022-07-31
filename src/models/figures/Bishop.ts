@@ -10,4 +10,9 @@ export class Bishop extends Figure {
         this.logo = color === Color.dark ? logoDark : logoLight
         this.name = FigureNames.Bishop
     }
+    canMove(target: Cell): boolean {
+        if (!super.canMove(target)) return false
+        if (this.cell.isEmptyDiagonal(target)) return true
+        return false
+    }
 }

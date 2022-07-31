@@ -8,7 +8,7 @@ import {Queen} from "./figures/Queen";
 import {King} from "./figures/King";
 
 export class Board {
-    cells: Cell[][] = []
+    private cells: Cell[][] = []
 
     public initCells() {
         for (let i = 0; i < 8; i++) {
@@ -19,6 +19,10 @@ export class Board {
             }
             this.cells.push(row)
         }
+    }
+
+    public getCells() {
+        return this.cells
     }
 
     private addKings(): void {
@@ -59,11 +63,6 @@ export class Board {
         }
     }
 
-
-    public getCell(x: number, y: number): Cell {
-        return this.cells[y][x]
-    }
-
     public addFigures(): void {
         this.addKings()
         this.addQueens()
@@ -72,6 +71,11 @@ export class Board {
         this.addBishops()
         this.addPawns()
     }
+
+    public getCell(x: number, y: number): Cell {
+        return this.cells[y][x]
+    }
+
 
     public addFisherFigures() {
 

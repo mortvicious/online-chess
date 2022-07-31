@@ -10,4 +10,11 @@ export class Queen extends Figure {
         this.logo = color === Color.dark ? logoDark : logoLight
         this.name = FigureNames.Queen
     }
+    canMove(target: Cell): boolean {
+        if (!super.canMove(target)) return false
+        if (this.cell.isEmptyVertical(target)) return true
+        if (this.cell.isEmptyHorizontal(target)) return true
+        if (this.cell.isEmptyDiagonal(target)) return true
+        return false
+    }
 }

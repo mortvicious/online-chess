@@ -13,11 +13,13 @@ export enum FigureNames {
 }
 
 export class Figure {
-    color: Color
-    logo: typeof logo | null
-    cell: Cell
-    name: FigureNames
-    id: number
+
+    public cell: Cell
+    public color: Color
+    public logo: typeof logo | null
+    public name: FigureNames
+    public id: number
+
     constructor(color: Color, cell: Cell) {
         this.color = color
         this.cell = cell
@@ -26,9 +28,13 @@ export class Figure {
         this.name = FigureNames.Default
         this.id = Math.random()
     }
+
     canMove(target: Cell): boolean {
+        if (target.figure?.color === this.color) return false
+        if (target.figure?.name === FigureNames.King) return false
         return true
     }
+
     moveFigure(target: Cell) {
         
     }
