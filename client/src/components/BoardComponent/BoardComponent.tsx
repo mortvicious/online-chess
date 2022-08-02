@@ -1,12 +1,11 @@
-import React, {FC, useEffect, useState} from "react";
+import React, { FC, useEffect, useState } from 'react'
 import styles from './BoardComponent.module.scss'
-import {CellComponent} from "../CellComponent/CellComponent";
-import {Color} from "../../models/Color";
-import {IBoardComponent} from "./BoardComponent.types";
-import {Cell} from "../../models/Cell";
+import { CellComponent } from '../CellComponent/CellComponent'
+import { Color } from '../../models/Color'
+import { IBoardComponent } from './BoardComponent.types'
+import { Cell } from '../../models/Cell'
 
-export const BoardComponent:FC<IBoardComponent> = ({board, setBoard}) => {
-
+export const BoardComponent: FC<IBoardComponent> = ({ board, setBoard }) => {
     const [selectedCell, setSelectedCell] = useState<Cell | null>(null)
 
     const cells = board.getCells()
@@ -22,12 +21,16 @@ export const BoardComponent:FC<IBoardComponent> = ({board, setBoard}) => {
     }
 
     const handleClick = (cell: Cell) => {
-        if (selectedCell && selectedCell !== cell && selectedCell.figure?.canMove(cell)) {
+        if (
+            selectedCell &&
+            selectedCell !== cell &&
+            selectedCell.figure?.canMove(cell)
+        ) {
             selectedCell.moveFigure(cell)
             setSelectedCell(null)
             updateBoard()
         } else {
-            setSelectedCell((cell))
+            setSelectedCell(cell)
         }
     }
 
@@ -37,18 +40,21 @@ export const BoardComponent:FC<IBoardComponent> = ({board, setBoard}) => {
 
     return (
         <div className={styles['board-component']}>
-            {cells.map((row, index) =>
+            {cells.map((row, index) => (
                 <React.Fragment key={index}>
-                    {row.map(cell =>
+                    {row.map((cell) => (
                         <CellComponent
                             cell={cell}
                             key={cell.id}
-                            selected={cell.x === selectedCell?.x && cell.y === selectedCell?.y}
+                            selected={
+                                cell.x === selectedCell?.x &&
+                                cell.y === selectedCell?.y
+                            }
                             onClick={handleClick}
-                            />
-                    )}
+                        />
+                    ))}
                 </React.Fragment>
-            )}
+            ))}
         </div>
     )
 }

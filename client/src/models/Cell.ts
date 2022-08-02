@@ -1,9 +1,8 @@
-import {Color} from "./Color";
-import {Figure} from "./figures/Figure";
-import {Board} from "./Board";
+import { Color } from './Color'
+import { Figure } from './figures/Figure'
+import { Board } from './Board'
 
 export class Cell {
-
     readonly color: Color
     readonly x: number
     readonly y: number
@@ -12,7 +11,13 @@ export class Cell {
     public available: boolean
     public id: number
 
-    constructor(board: Board, x: number, y: number, color: Color, figure: Figure | null) {
+    constructor(
+        board: Board,
+        x: number,
+        y: number,
+        color: Color,
+        figure: Figure | null
+    ) {
         this.board = board
         this.x = x
         this.y = y
@@ -50,7 +55,7 @@ export class Cell {
         if (this.y !== target.y) return false
         const min = Math.min(this.x, target.x)
         const max = Math.max(this.x, target.x)
-        for (let x = min + 1; x < max ; x++) {
+        for (let x = min + 1; x < max; x++) {
             if (!this.board.getCell(x, this.y).isEmpty()) return false
         }
         return true
@@ -60,7 +65,7 @@ export class Cell {
         if (this.x !== target.x) return false
         const min = Math.min(this.y, target.y)
         const max = Math.max(this.y, target.y)
-        for (let y = min + 1; y < max ; y++) {
+        for (let y = min + 1; y < max; y++) {
             if (!this.board.getCell(this.x, y).isEmpty()) return false
         }
         return true
@@ -75,7 +80,8 @@ export class Cell {
         const dy = this.y < target.y ? 1 : -1
 
         for (let i = 1; i < absY; i++) {
-            if (!this.board.getCell(this.x + dx * i, this.y + dy * i).isEmpty()) return false
+            if (!this.board.getCell(this.x + dx * i, this.y + dy * i).isEmpty())
+                return false
         }
         return true
     }

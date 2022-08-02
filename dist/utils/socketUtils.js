@@ -1,11 +1,11 @@
 import { Server } from 'socket.io';
-export var socketUtils;
+var socketUtils;
 (function (socketUtils) {
     socketUtils.sio = (server) => {
         return new Server(server, {
             cors: {
-                origin: '*'
-            }
+                origin: '*',
+            },
         });
     };
     socketUtils.connection = (io) => {
@@ -17,4 +17,4 @@ export var socketUtils;
         });
     };
 })(socketUtils || (socketUtils = {}));
-// export default socketUtils
+export default socketUtils;

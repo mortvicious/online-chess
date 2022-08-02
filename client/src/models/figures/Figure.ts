@@ -1,6 +1,6 @@
 import logo from '../../assets/king_black.png'
-import {Color} from "../Color";
-import {Cell} from "../Cell";
+import { Color } from '../Color'
+import { Cell } from '../Cell'
 
 export enum FigureNames {
     Default = '',
@@ -13,7 +13,6 @@ export enum FigureNames {
 }
 
 export class Figure {
-
     public cell: Cell
     public color: Color
     public logo: typeof logo | null
@@ -35,7 +34,5 @@ export class Figure {
         return true
     }
 
-    moveFigure(target: Cell) {
-        
-    }
+    moveFigure(target: Cell) {}
 }

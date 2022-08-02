@@ -1,4 +1,4 @@
-import {Board} from "../../models/Board";
+import { Board } from '../../models/Board'
 
 export interface IBoardComponent {
     board: Board

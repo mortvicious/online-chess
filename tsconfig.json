@@ -92,6 +92,7 @@
   "exclude": [
     "client",
     "node_modules",
+    "./types",
     "./dist"
   ],
 }

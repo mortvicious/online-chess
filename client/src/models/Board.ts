@@ -1,11 +1,11 @@
-import {Cell} from "./Cell";
-import {Color} from "./Color";
-import {Pawn} from "./figures/Pawn";
-import {Rook} from "./figures/Rook";
-import {Knight} from "./figures/Knight";
-import {Bishop} from "./figures/Bishop";
-import {Queen} from "./figures/Queen";
-import {King} from "./figures/King";
+import { Cell } from './Cell'
+import { Color } from './Color'
+import { Pawn } from './figures/Pawn'
+import { Rook } from './figures/Rook'
+import { Knight } from './figures/Knight'
+import { Bishop } from './figures/Bishop'
+import { Queen } from './figures/Queen'
+import { King } from './figures/King'
 
 export class Board {
     private cells: Cell[][] = []
@@ -14,8 +14,10 @@ export class Board {
         for (let i = 0; i < 8; i++) {
             const row: Cell[] = []
             for (let j = 0; j < 8; j++) {
-                if ((i + j) % 2 === 0) row.push(new Cell(this, j, i, Color.dark, null))
-                else if ((i + j) % 2 !== 0) row.push(new Cell(this, j, i, Color.light, null ))
+                if ((i + j) % 2 === 0)
+                    row.push(new Cell(this, j, i, Color.dark, null))
+                else if ((i + j) % 2 !== 0)
+                    row.push(new Cell(this, j, i, Color.light, null))
             }
             this.cells.push(row)
         }
@@ -57,7 +59,7 @@ export class Board {
     }
 
     private addPawns(): void {
-        for (let i = 0; i < 8 ; i++) {
+        for (let i = 0; i < 8; i++) {
             new Pawn(Color.light, this.getCell(i, 1))
             new Pawn(Color.dark, this.getCell(i, 6))
         }
@@ -76,15 +78,12 @@ export class Board {
         return this.cells[y][x]
     }
 
-
-    public addFisherFigures() {
-
-    }
+    public addFisherFigures() {}
 
     public highlightCells(selectedCell: Cell | null) {
         for (let i = 0; i < this.cells.length; i++) {
             const row = this.cells[i]
-            for (let j = 0; j < row.length ; j++) {
+            for (let j = 0; j < row.length; j++) {
                 const target = row[j]
                 target.available = !!selectedCell?.figure?.canMove(target)
             }
@@ -97,4 +96,3 @@ export class Board {
         return newBoard
     }
 }
-
